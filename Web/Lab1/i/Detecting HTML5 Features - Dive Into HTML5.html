@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://diveintohtml5.info/detect.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase no-indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms no-csstransforms3d csstransitions fontface video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Detecting HTML5 Features - Dive Into HTML5</title>
+<!--[if lt IE 9]><script src="j/html5.js"></script><![endif]-->
+<link rel="alternate" type="application/atom+xml" href="https://github.com/diveintomark/diveintohtml5/commits/master.atom">
+<link rel="stylesheet" href="./Detecting HTML5 Features - Dive Into HTML5_files/screen.css">
+<style>
+body{counter-reset:h1 2}
+</style>
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./Detecting HTML5 Features - Dive Into HTML5_files/mobile.css">
+<link rel="prefetch" href="http://diveintohtml5.info/index.html">
+<style type="text/css">/*.lleo_errorSelection *::-moz-selection,
+.lleo_errorSelection *::selection,
+.lleo_errorSelection *::-webkit-selection {
+    background-color: red !important;
+    color: #fff !important;;
+}*/
+
+#lleo_dialog,
+#lleo_dialog * {
+    color: #000 !important;
+    font: normal 13px Arial, Helvetica !important;
+    line-height: 15px !important;
+    margin: 0 !important;
+	padding: 0 !important;
+	background: none !important;
+	border: none 0 !important;
+	position: static !important;
+	vertical-align: baseline !important;
+	overflow: visible !important;
+	width: auto !important;
+	height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+	float: none !important;
+	visibility: visible !important;
+	text-align: left !important;
+    text-transform: none !important;
+	border-collapse: separate !important;
+	border-spacing: 2px !important;
+    box-sizing: content-box !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    text-shadow: none !important;
+    letter-spacing: normal !important;
+    -webkit-filter: none !important;
+    -moz-filter: none !important;
+    filter: none !important;
+}
+#lleo_dialog *:before,
+#lleo_dialog *:after {
+    content: '';
+}
+
+#lleo_dialog iframe {
+	height: 0 !important;
+	width: 0 !important;
+}
+
+#lleo_dialog {
+    position: absolute !important;
+    background: #fff !important;
+    border: solid 1px #ccc !important;
+    padding: 7px 0 0 !important;
+    left: -999px;
+    top: -999px;
+    width: 440px !important;
+    overflow: hidden;
+    display: block !important;
+    z-index: 999999999 !important;
+    box-shadow: 8px 16px 30px rgba(0, 0, 0, 0.16) !important;
+    border-radius: 3px !important;
+    opacity: 0 !important;
+    -webkit-transform: translateY(15px);
+    -moz-transform: translateY(15px);
+    -ms-transform: translateY(15px);
+    -o-transform: translateY(15px);
+    transform: translateY(15px);
+}
+#lleo_dialog.lleo_show_small {
+    width: 150px !important;
+}
+#lleo_dialog.lleo_show {
+    opacity: 1 !important;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s !important;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s !important;
+    -ms-transition: -ms-transform 0.3s, opacity 0.3s !important;
+    -o-transition: -o-transform 0.3s, opacity 0.3s !important;
+    transition: transform 0.3s, opacity 0.3s !important;
+}
+#lleo_dialog.lleo_collapse {
+    opacity: 0 !important;
+    -webkit-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -moz-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -ms-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -o-transform: scale(0.25, 0.1) translate(-550px, 100px);
+    transform: scale(0.25, 0.1) translate(-550px, 100px);
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s !important;
+    -moz-transition: -moz-transform 0.4s, opacity 0.4s !important;
+    -ms-transition: -ms-transform 0.4s, opacity 0.4s !important;
+    -o-transition: -o-transform 0.4s, opacity 0.4s !important;
+    transition: transform 0.4s, opacity 0.4s !important;
+}
+#lleo_dialog input::-webkit-input-placeholder {
+    color: #aaa !important;
+}
+#lleo_dialog .lleo_has_pic #lleo_word {
+	margin-right: 80px !important;
+}
+#lleo_dialog #lleo_translationsContainer1 {
+	position: relative !important;
+}
+#lleo_dialog #lleo_translationsContainer2 {
+	padding: 7px 0 0 !important;
+	vertical-align: middle !important;
+}
+#lleo_dialog #lleo_word {
+    color: #000 !important;
+    margin: 0 5px 2px 0 !important;
+    /*float: left !important;*/
+}
+#lleo_dialog .lleo_has_sound #lleo_word {
+    margin-left: 30px !important;
+}
+#lleo_dialog #lleo_text {
+    font-weight: bold !important;
+    color: #d56e00 !important;
+    text-decoration: none !important;
+    cursor: default !important;
+}
+/*
+#lleo_dialog #lleo_text.lleo_known {
+    cursor: pointer !important;
+    text-decoration: underline !important;
+}
+*/
+/*#lleo_dialog #lleo_closeBtn {
+    position: absolute !important;
+    right: 6px !important;
+    top: 5px !important;
+    line-height: 1px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 0 !important;
+    color: #aaa !important;
+    display: block !important;
+	z-index: 9999999999 !important;
+	width: 7px !important;
+	height: 7px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}*/
+
+#lleo_dialog #lleo_optionsBtn {
+    position: absolute !important; 
+    right: 3px !important;
+    top: 5px !important;
+    line-height: 1px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 13px !important;
+    color: #aaa !important;
+    padding: 2px !important;
+	display: none;
+}
+    #lleo_dialog.lleo_optionsShown #lleo_optionsBtn {
+        display: block !important;
+    }
+    #lleo_dialog #lleo_optionsBtn img {
+        width: 12px !important;
+        height: 12px !important;
+    }
+#lleo_dialog #lleo_sound {
+    float: left !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-left: 9px !important;
+    margin-right: 3px !important;
+    background: 0 0 no-repeat !important;
+    cursor: pointer !important;
+    display: none !important;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAfNJREFUeNq0U01IVFEU/u57Oo5WhBRIBBptykWLYBa2soWiEKQQEbrSFsGbVRQKQc2iFqGitXqvjQxCoCJCqyI0aBUtZILaJNUuYWYWo8HovJ/707nP94bnz0rxwvfOuefd8517fi5TSuE4i50YwZ3l37ZhNlpgzFkaaM/G9sHF1YskNrT+7l4PjMOcb78t2JL71uxgB+2UlfxHTtq5N94fIOh/88kWgWfl73ZCSQkpeGg3H091JY6dI2S00qA/N3KO3dDUYhFgEmZGurG+w9FqApIHsVM7kaTF9Nhn0r8Q7hPWQgIRuNaH3AMUA4W/Lkdh04cpFS43G0TgxQTvCdMETVAk3KynIHwXZU/ge8XDt7KH9bKLjU0P2zVO5LsEpSejVRJ9UR18EtfqKegovs9R3Q6w9c/H1o4Aa2Jwm1lIvn9RJ4w9RdRRzqcYrpwycCll4Cy1lnkS3Bc6vfBg28v8aRIfI78zhB/1GygROH3jLyyzMQ0zlUZuZBSlKkeLoegGtTjYLcJ8pF+NakHOFC2J6w+f25mxSfWrWFF/ShXVPTGvtN14NNkVnxlYWJkgZEL7/vwKr55lKSVnaGYWkuYgrgG172uUv47+U7fw0EHaJXmalUQy/HqO6lBzEsVjJC4Q8kd6TETQpjuaGOvjv8b/AgwA/ij1XMx58NIAAAAASUVORK5CYII=) !important;
+}
+#lleo_dialog .lleo_has_sound #lleo_sound {
+    display: block !important;
+}
+
+#lleo_dialog #lleo_soundWave {
+    border: solid 5px #4495CC !important;
+    border-radius: 5px !important;
+    position: absolute !important;
+    left: -5px !important;
+    top: -5px !important;
+    right: -5px !important;
+    bottom: -5px !important;
+    z-index: 0 !important;
+    opacity: 0.9 !important;
+    display: none !important;
+}
+    #lleo_dialog #lleo_soundWave.lleo_beforePlaying {
+        display: block !important;
+    }
+    #lleo_dialog #lleo_soundWave.lleo_playing {
+        opacity: 0 !important;
+        border-width: 20px !important;
+        border-radius: 30px !important;
+
+        -webkit-transform: scale(1.07,1.1) !important;
+        -moz-transform: scale(1.07,1.1) !important;
+        -ms-transform: scale(1.07,1.1) !important;
+        transform: scale(1.07,1.1) !important;
+
+        -webkit-transition: all 0.6s !important;
+        -moz-transition: all 0.6s !important;
+        -ms-transition: all 0.6s !important;
+        transition: all 0.6s !important;
+    }
+
+
+#lleo_dialog #lleo_picOuter {
+    position: absolute !important;
+    float: right !important;
+    top: 4px;
+    right: 5px;
+    z-index: 9 !important;
+    display: none !important;
+    width: 100px !important;
+}
+    #lleo_dialog.lleo_optionsShown #lleo_picOuter {
+        right: 25px;
+    }
+#lleo_dialog .lleo_has_pic #lleo_picOuter {
+    display: block !important;
+}
+    #lleo_dialog #lleo_picOuter:hover {
+        width: auto !important;
+        z-index: 11 !important;
+    }
+#lleo_dialog #lleo_pic,
+#lleo_dialog #lleo_picBig {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    border: solid 2px #fff !important;
+    -webkit-border-radius: 2px !important;
+    -moz-border-radius: 2px !important;
+	border-radius: 2px !important;
+    z-index: 1 !important;
+}
+#lleo_dialog #lleo_pic {
+	position: relative !important;
+    border: none !important;
+	width: 30px !important;
+}
+#lleo_dialog #lleo_picBig {
+    box-shadow: -1px 2px 4px rgba(0,0,0,0.3);
+    z-index: 2 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+    #lleo_dialog #lleo_picOuter:hover #lleo_picBig {
+        visibility: visible !important;
+        opacity: 1 !important;
+        -webkit-transition: opacity 0.3s !important;
+        -webkit-transition-delay: 0.3s !important;
+    }
+#lleo_dialog #lleo_transcription {
+    margin: 0 80px 4px 31px !important;
+    color: #aaaaaa !important;
+}
+#lleo_dialog .lleo_no_trans {
+    color: #aaa !important;
+}
+
+#lleo_dialog .ll-translation-counter {
+	float: right !important;
+    font-size: 11px !important;
+    color: #aaa !important;
+    padding: 2px 2px 1px 10px !important;
+}
+
+#lleo_dialog .ll-translation-text {
+	float: left !important;
+	/*width: 80% !important;*/
+}
+
+#lleo_dialog #lleo_trans a {
+    color: #3F669F !important;
+    text-decoration: none !important;
+    text-overflow: ellipsis !important;
+    padding: 1px 4px !important;
+    overflow: hidden !important;
+    float: left !important;
+    width: 320px !important;
+}
+
+#lleo_dialog .ll-translation-item {
+    color: #3F669F !important;
+    border: solid 1px #fff !important;
+    padding: 3px !important;
+    width: 100% !important;
+    float: left !important;
+	-moz-border-radius: 2px !important;
+	-webkit-border-radius: 2px !important;
+	border-radius: 2px !important;
+}
+
+#lleo_dialog .ll-translation-item:hover {
+	border: solid 1px #9FC2C9 !important;
+    background: #EDF4F6 !important;
+	cursor: pointer !important;
+}
+#lleo_dialog .ll-translation-item:hover .ll-translation-counter {
+	color: #83a0a6 !important;
+}
+
+#lleo_dialog .ll-translation-marker {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAWSURBVBhXY7RPm/+fAQkwIXNAbMICAJQ8AkvqWg/SAAAAAElFTkSuQmCC) !important;
+    display: inline-block !important;
+    width: 4px !important;
+    height: 4px !important;
+    margin: 7px 5px 2px 2px !important;
+    float: left !important;
+}
+
+#lleo_dialog #lleo_icons {
+    color: #aaa !important;
+    font-size: 11px !important;
+    background: #f8f8f8 !important;
+    padding: 10px 10px 10px 16px !important;
+}
+#lleo_icons a {
+    display: inline-block !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 10px -4px 3px !important;
+    text-decoration: none !important;
+    opacity: 0.5 !important;
+    background: url(data:image/png;base64,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) !important;
+}
+#lleo_icons a:hover {
+    opacity: 1 !important;
+}
+#lleo_icons a.lleo_google     {background-position:-34px 0 !important;}
+#lleo_icons a.lleo_multitran  {background-position:-64px 0 !important;}
+#lleo_icons a.lleo_lingvo     {background-position:-51px 0 !important; width: 12px !important;}
+#lleo_icons a.lleo_dict       {background-position:-17px 0 !important;}
+#lleo_icons a.lleo_linguee    {background-position:-81px 0 !important;}
+#lleo_icons a.lleo_michaelis  {background-position:-98px 0 !important;}
+
+#lleo_dialog #lleo_contextContainer {
+    margin: 0 !important;
+    padding: 3px 15px 8px 10px !important;
+    background: #eee !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee)) !important;
+    background: -moz-linear-gradient(-90deg, #fff, #eee) !important;
+    border-bottom: solid 1px #ddd !important;
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    display: none !important;
+    overflow: hidden !important;
+}
+#lleo_dialog .lleo_has_context #lleo_contextContainer {
+    display: block !important;
+}
+#lleo_dialog #lleo_context {
+    color: #444 !important;
+    text-shadow: 1px 1px 0 #f4f4f4 !important;
+    line-height: 12px !important;
+    font-size: 11px !important;
+    margin-left: 2px !important;
+}
+#lleo_dialog #lleo_context b {
+    line-height: 12px !important;
+    color: #000 !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+}
+/*#lleo_dialog #lleo_gBrand {
+    color: #aaa !important;
+    font-size: 10px !important;
+    *//*padding-right: 52px !important;*//*
+    padding-bottom: 14px !important;
+    margin: -3px 4px 0 4px !important;
+    background: left bottom url(data:image/png;base64,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) no-repeat !important;
+    display: inline-block !important;
+    float: right !important;
+}
+#lleo_dialog #lleo_gBrand.hidden {
+    display: none !important;
+}*/
+#lleo_dialog #lleo_translateContextLink {
+    color: #444 !important;
+    text-shadow: 1px 1px 0 #f4f4f4 !important;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f4), to(#ddd)) !important;
+    background: -moz-linear-gradient(-90deg, #f4f4f4, #ddd) !important;
+    border: solid 1px !important;
+    box-shadow: 1px 1px 0 #f6f6f6 !important;
+    border-color: #999 #aaa #aaa #999 !important;
+    -moz-border-radius: 2px !important;
+	-webkit-border-radius: 2px !important;
+	border-radius: 2px !important;
+    padding: 0 3px !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+    margin: 1px 5px 0 !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+#lleo_dialog #lleo_translateContextLink:hover {
+    background: #f8f8f8 !important;
+}
+#lleo_dialog #lleo_translateContextLink.hidden {
+    visibility: hidden !important;
+}
+
+#lleo_dialog #lleo_setTransForm {
+    display: block !important;
+    margin-top: 3px !important;
+    padding-top: 5px !important;
+    /* Set position and background because the form might be overlapped by an image when no translations */
+    position: relative !important;
+    background: #fff !important;
+    z-index: 10 !important;
+    padding-bottom: 10px !important;
+    padding-left: 16px !important;
+}
+#lleo_dialog .lleo-custom-translation {
+    padding: 4px 5px !important;
+    border: solid 1px #ddd !important;
+	border-radius: 2px !important;
+    width: 90% !important;
+    min-width: 270px !important;
+    background: -webkit-gradient(linear, 0 0, 0 20, from(#f1f1f1), to(#fff)) !important;
+    background: -moz-linear-gradient(-90deg, #f1f1f1, #fff) !important;
+	font: normal 13px Arial, Helvetica !important;
+	line-height: 15px !important;
+}
+#lleo_dialog .lleo-custom-translation:hover {
+    border: solid 1px #aaa !important;
+}
+#lleo_dialog .lleo-custom-translation:focus {
+    background: #FFFEC9 !important;
+}
+
+#lleo_dialog *.hidden {
+    display: none !important;
+}
+
+#lleo_dialog .infinitive{
+    color: #D56E00 !important;
+    text-decoration: none;
+    border-bottom: 1px dotted #D56E00 !important;
+}
+#lleo_dialog .infinitive:hover{
+    border: none !important;
+}
+
+#lleo_dialog .lleo_separator {
+    height: 1px !important;
+    background: #eee;
+    margin-top: 10px !important;
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,#eee 8%,rgba(255,255,255,1) 80%) !important;
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, #eee 8%, rgba(255,255,255,1) 80%) !important;
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%,#eee 8%,rgba(255,255,255,1) 80%) !important;
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%,#eee 8%,rgba(255,255,255,1) 80%) !important;
+}
+#lleo_dialog #lleo_trans {
+    /*border-top: 1px solid #eeeeee !important;*/
+    padding: 5px 30px 0 14px !important;
+    zoom: 1;
+}
+
+#lleo_dialog .lleo_clearfix {
+	display: block !important;
+	clear: both !important;
+	visibility: hidden !important;
+	height: 0 !important;
+	font-size: 0 !important;
+}
+
+
+#lleo_dialog #lleo_picOuter table {
+    width: 44px !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    vertical-align: middle !important;
+}
+
+#lleo_dialog #lleo_picOuter td {
+    width: 38px !important;
+    height: 38px !important;
+    /*border: 1px solid #eeeeee !important;*/
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+#lleo_dialog #lleo_picOuter td div {
+	height: 38px !important;
+	overflow: hidden !important;
+}
+
+#lleo_dialog .lleo_empty {
+    margin: 0 5px 7px !important;
+}
+
+#lleo_youtubeExportBtn {
+    margin-left: 10px;
+    height: 24px;
+}
+    #lleo_youtubeExportBtn i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: 0 0 url(https://d144fqpiyasmrr.cloudfront.net/plugins/all/images/i16.png) !important;
+    }
+    #lleo_youtubeExportBtn .yt-uix-button-content {
+        font-size: 12px;
+        line-height: 2px;
+    }
+
+
+/*** Parsed Lyrics Content *****************************/
+
+.lleo_lyrics tran {
+    background: transparent !important;
+    border-radius: 2px !important;
+    text-shadow: none !important;
+    cursor: pointer !important;
+}
+    .lleo_lyrics tran:hover {
+        color: #fff !important;
+        background: #C77213 !important;
+        -webkit-transition: all 0.1s !important;
+        -moz-transition: all 0.1s !important;
+        -ms-transition: all 0.1s !important;
+        -o-transition: all 0.1s !important;
+        transition: all 0.1s !important;
+    }
+
+.lleo_songName {
+    border: solid 1px #ffd47c;
+    background: #fff1c2;
+    border-radius: 2px;
+}
+
+.lleo_hidden_iframe {
+    visibility: hidden;
+}</style><script type="text/javascript" charset="UTF-8" src="./Detecting HTML5 Features - Dive Into HTML5_files/common.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Detecting HTML5 Features - Dive Into HTML5_files/util.js.download"></script><script type="text/javascript" charset="UTF-8" src="./Detecting HTML5 Features - Dive Into HTML5_files/stats.js.download"></script></head><body cz-shortcut-listen="true"><p>You are here: <a href="http://diveintohtml5.info/index.html">Home</a> <span class="u triangularBullet"></span> <a href="http://diveintohtml5.info/table-of-contents.html#detect">Dive Into <abbr>HTML5</abbr></a> <span class="u triangularBullet"></span>
+</p><h1><br>Detecting <abbr>HTML5</abbr> Features</h1>
+<p id="toc"><a href="javascript:showTOC()">show table of contents</a></p><p class="a rotatedFloralHeartBullet">
+</p><h2 id="divingin">Diving In</h2>
+
+<p class="f">You may well ask: “How can I start using <abbr>HTML5</abbr> if older browsers don’t support it?” But the question itself is misleading. <abbr>HTML5</abbr> is not one big thing; it is a collection of individual features. So you can’t detect “<abbr>HTML5</abbr> support,” because that doesn’t make any sense. But you <em>can</em> detect support for individual features, like canvas, video, or geolocation.
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="techniques">Detection Techniques</h2>
+
+<p>When your browser renders a web page, it constructs a Document Object Model (<abbr><dfn>DOM</dfn></abbr>), a collection of objects that represent the <abbr>HTML</abbr> elements on the page. Every element — every <code>&lt;p&gt;</code>, every <code>&lt;div&gt;</code>, every <code>&lt;span&gt;</code> — is represented in the <abbr>DOM</abbr> by a different object. (There are also global objects, like <code>window</code> and <code>document</code>, that aren’t tied to specific elements.)
+
+</p><p class="ss" style="width:257px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_peeking_out_the_window.png" width="257" height="436" alt="girl peeking out the window">
+
+</p><p>All <abbr>DOM</abbr> objects share a set of common properties, but some objects have more than others. In browsers that support <abbr>HTML5</abbr> features, certain objects will have unique properties. A quick peek at the <abbr>DOM</abbr> will tell you which features are supported.
+
+</p><p>There are four basic techniques for detecting whether a browser supports a particular feature. From simplest to most complex:
+
+</p><ol>
+<li>
+<p>Check if a certain property exists on a global object (such as <code>window</code> or <code>navigator</code>).
+</p><p>Example: <a href="http://diveintohtml5.info/detect.html#geolocation">testing for geolocation support</a>
+</p></li><li>
+<p>Create an element, then check if a certain property exists on that element.
+</p><p>Example: <a href="http://diveintohtml5.info/detect.html#canvas">testing for canvas support</a>
+</p></li><li>
+<p>Create an element, check if a certain method exists on that element, then call the method and check the value it returns.
+</p><p>Example: <a href="http://diveintohtml5.info/detect.html#video-formats">testing which video formats are supported</a>
+</p></li><li>
+<p>Create an element, set a property to a certain value, then check if the property has retained its value.
+</p><p>Example: <a href="http://diveintohtml5.info/detect.html#input-types">testing which <code>&lt;input&gt;</code> types are supported</a>
+</p></li></ol>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="modernizr">Modernizr, an HTML5 Detection Library</h2>
+
+<p><a href="http://www.modernizr.com/">Modernizr</a> is an open source, <abbr>MIT</abbr>-licensed JavaScript library that detects support for many <abbr>HTML5</abbr> <i class="baa">&amp;</i> <abbr>CSS3</abbr> features. You should always use the latest version. To use it, include the following <code>&lt;script&gt;</code> element at the top of your page.
+
+</p><pre style="float:left"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Dive Into HTML5&lt;/title&gt;
+  <mark>&lt;script src="modernizr.min.js"&gt;&lt;/script&gt;</mark>
+&lt;/head&gt;
+&lt;body&gt;
+  ...
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p class="legend right" style="margin-top:7em"><span class="arrow leftwardsWaveArrow"></span> It goes to your &lt;head&gt;
+
+</p><p class="clear">Modernizr runs automatically. There is no <code>modernizr_init()</code> function to call. When it runs, it creates a global object called <code>Modernizr</code>, that contains a set of Boolean properties for each feature it can detect. For example, if your browser supports the <a href="http://diveintohtml5.info/canvas.html">canvas <abbr>API</abbr></a>, the <code>Modernizr.canvas</code> property will be <code>true</code>. If your browser does not support the canvas <abbr>API</abbr>, the <code>Modernizr.canvas</code> property will be <code>false</code>.
+
+</p><pre><code>if (Modernizr.canvas) {
+  // let's draw some shapes!
+} else {
+  // no native canvas support available :(
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="canvas">Canvas</h2>
+
+<p class="ss" style="width:300px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_fishing_boat.png" width="300" height="203" alt="man fishing in a canoe"><br><span id="live-canvas">Your browser supports the canvas API.</span>
+
+</p><p><abbr>HTML5</abbr> defines <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">the &lt;canvas&gt; element</a> as “a resolution-dependent bitmap canvas that can be used for rendering graphs, game graphics, or other visual images on the fly.” A <dfn>canvas</dfn> is a rectangle in your page where you can use JavaScript to draw anything you want. <abbr>HTML5</abbr> defines a set of functions (“the canvas <abbr>API</abbr>”) for drawing shapes, defining paths, creating gradients, and applying transformations.
+
+</p><p>Checking for the canvas <abbr>API</abbr> uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas&gt;</code> element will have a <a href="http://diveintohtml5.info/canvas.html#shapes"><code>getContext()</code> method</a>. If your browser doesn’t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas&gt;</code> element will only have the set of common properties, but not anything canvas-specific.
+
+</p><pre><code>function supports_canvas() {
+  return !!document.createElement('canvas').getContext;
+}
+</code></pre>
+
+<p>This function starts by creating a dummy <code>&lt;canvas&gt;</code> element. But the element is never attached to your page, so no one will ever see it. It’s just floating in memory, going nowhere and doing nothing, like a canoe on a lazy river.
+
+</p><pre><code>return !!document.<mark>createElement('canvas')</mark>.getContext;</code></pre>
+
+<p>As soon as you create the dummy <code>&lt;canvas&gt;</code> element, you test for the presence of a <code>getContext()</code> method. This method will only exist if your browser supports the canvas <abbr>API</abbr>.
+
+</p><pre><code>return !!document.createElement('canvas').<mark>getContext</mark>;</code></pre>
+
+<p>Finally, you use the double-negative trick to force the result to a Boolean value (<code>true</code> or <code>false</code>).
+
+</p><pre><code>return <mark>!!</mark>document.createElement('canvas').getContext;</code></pre>
+
+<p>This function will detect support for most of the canvas <abbr>API</abbr>, including <a href="http://diveintohtml5.info/canvas.html#shapes">shapes</a>, <a href="http://diveintohtml5.info/canvas.html#paths">paths</a>, <a href="http://diveintohtml5.info/canvas.html#gradients">gradients <i class="baa">&amp;</i> patterns</a>. It will not detect the third-party <a href="http://diveintohtml5.info/canvas.html#ie"><code>explorercanvas</code> library</a> that implements the canvas <abbr>API</abbr> in Microsoft Internet Explorer.
+
+</p><p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> to detect support for the canvas <abbr>API</abbr>.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for canvas support
+</p><pre><code>if (<mark>Modernizr.canvas</mark>) {
+  // let's draw some shapes!
+} else {
+  // no native canvas support available :(
+}</code></pre>
+
+<p>There is a separate test for the canvas text <abbr>API</abbr>, which I will demonstrate next.
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="canvas-text">Canvas Text</h2>
+
+<p class="ss" style="width:414px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_baseball_at_bat.png" width="414" height="254" alt="baseball player at bat"><br><span id="live-canvas-text">Your browser supports the canvas text API.</span>
+
+</p><p>Even if your browser supports the <a href="http://diveintohtml5.info/detect.html#canvas">canvas <abbr>API</abbr></a>, it might not support the <dfn>canvas text</dfn> <abbr>API</abbr>. The canvas <abbr>API</abbr> grew over time, and the text functions were added late in the game. Some browsers shipped with canvas support before the text <abbr>API</abbr> was complete.
+
+</p><p>Checking for the canvas text <abbr>API</abbr> uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #2</a>. If your browser supports the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;canvas&gt;</code> element will have the <a href="http://diveintohtml5.info/canvas.html#shapes"><code>getContext()</code> method</a>. If your browser doesn’t support the canvas <abbr>API</abbr>, the <abbr>DOM</abbr> object it creates for a <code>&lt;canvas&gt;</code> element will only have the set of common properties, but not anything canvas-specific.
+
+</p><pre><code>function supports_canvas_text() {
+  if (!supports_canvas()) { return false; }
+  var dummy_canvas = document.createElement('canvas');
+  var context = dummy_canvas.getContext('2d');
+  return typeof context.fillText == 'function';
+}</code></pre>
+
+<p>The function starts by <a href="http://diveintohtml5.info/detect.html#canvas">checking for canvas support</a>, using the <code>supports_canvas()</code> function you just saw in the previous section. If your browser doesn’t support the canvas <abbr>API</abbr>, it certainly won’t support the canvas text <abbr>API</abbr>!
+
+</p><pre><code>if (<mark>!supports_canvas()</mark>) { return false; }</code></pre>
+
+<p>Next, you create a dummy <code>&lt;canvas&gt;</code> element and get its drawing context. This is guaranteed to work, because the <code>supports_canvas()</code> function already checked that the <code>getContext()</code> method exists on all canvas objects.
+
+</p><pre><code>  var dummy_canvas = document.createElement('canvas');
+  var context = <mark>dummy_canvas.getContext('2d')</mark>;</code></pre>
+
+<p>Finally, you check whether the drawing context has a <code>fillText()</code> function. If it does, the canvas text <abbr>API</abbr> is available. Hooray!
+
+</p><pre><code>  return <mark>typeof context.fillText == 'function'</mark>;</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> to detect support for the canvas text <abbr>API</abbr>.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for canvas text support
+</p><pre><code>if (<mark>Modernizr.canvastext</mark>) {
+  // let's draw some text!
+} else {
+  // no native canvas text support available :(
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="video">Video</h2>
+
+<p><abbr>HTML5</abbr> defines a new element called <code>&lt;video&gt;</code> for embedding video in your web pages. Embedding video used to be impossible without third-party plugins such as Apple QuickTime® or Adobe Flash®.
+
+</p><p class="ss" style="width:224px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_at_the_theater.png" alt="audience at the theater" width="224" height="334"><br><span id="live-video">Your browser supports HTML5 video.</span>
+
+</p><p>The <code>&lt;video&gt;</code> element is designed to be usable without any detection scripts. You can specify multiple video files, and browsers that support <abbr>HTML5</abbr> video will choose one based on what video formats they support. (See “A gentle introduction to video encoding” <a href="http://diveintomark.org/archives/2008/12/18/give-part-1-container-formats">part 1: container formats</a> and <a href="http://diveintomark.org/archives/2008/12/19/give-part-2-lossy-video-codecs">part 2: lossy video codecs</a> to learn about different video formats.)
+
+</p><p>Browsers that don’t support <abbr>HTML5</abbr> video will ignore the <code>&lt;video&gt;</code> element completely, but you can use this to your advantage and tell them to play video through a third-party plugin instead. Kroc Camen has designed a solution called <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a> that uses <abbr>HTML5</abbr> video where available, but falls back to QuickTime or Flash in older browsers. This solution uses no JavaScript whatsoever, and it works in virtually every browser, including mobile browsers.
+
+</p><p>If you want to do more with video than plop it on your page and play it, you’ll need to use JavaScript. Checking for video support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #2</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video&gt;</code> element will have a <code>canPlayType()</code> method. If your browser doesn’t support <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates for a <code>&lt;video&gt;</code> element will have only the set of properties common to all elements. You can check for video support using this function:
+
+</p><pre><code>function supports_video() {
+  return !!document.createElement('video').canPlayType;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> to detect support for <abbr>HTML5</abbr> video.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> video support
+</p><pre><code>if (<mark>Modernizr.video</mark>) {
+  // let's play some video!
+} else {
+  // no native video support available :(
+  // maybe check for QuickTime or Flash instead
+}</code></pre>
+
+<p>In <a href="http://diveintohtml5.info/video.html">the Video chapter</a>, I’ll explain another solution that uses these detection techniques to convert <code>&lt;video&gt;</code> elements to Flash-based video players, for the benefit of browsers that don’t support <abbr>HTML5</abbr> video.
+
+</p><p>There is a separate test for detecting which video formats your browser can play, which I will demonstrate next.
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="video-formats">Video Formats</h2>
+
+<p>Video formats are like written languages. An English newspaper may convey the same information as a Spanish newspaper, but if you can only read English, only one of them will be useful to you! To play a video, your browser needs to understand the “language” in which the video was written.
+
+</p><p class="ss" style="float:left;margin:0 1.75em 1.75em 0;width:250px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_man_reading_newspaper.png" alt="man reading newspaper" width="250" height="261"><br><span id="live-video-formats">Your browser can play both Ogg Theora and H.264 video. Hey, you can play WebM video, too!</span>
+
+</p><p>The “language” of a video is called a “codec” — this is the algorithm used to encode the video into a stream of bits. There are dozens of codecs in use all over the world. Which one should you use? The unfortunate reality of <abbr>HTML5</abbr> video is that browsers can’t agree on a single codec. However, they seem to have narrowed it down to two. One codec costs money (because of patent licensing), but it works in <a href="http://www.apple.com/safari/">Safari</a> and on the iPhone.  (This one also works in Flash if you use a solution like <a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a>) The other codec is free and works in open source browsers like <a href="http://code.google.com/chromium/">Chromium</a> and <a href="http://www.getfirefox.com/">Mozilla Firefox</a>.
+
+</p><p>Checking for video format support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #3</a>. If your browser supports <abbr>HTML5</abbr> video, the <abbr>DOM</abbr> object it creates to represent a <code>&lt;video&gt;</code> element will have a <code>canPlayType()</code> method. This method will tell you whether the browser supports a particular video format.
+
+</p><p>This function checks for the patent-encumbered format supported by Macs and iPhones.
+
+</p><pre><code>function supports_h264_baseline_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+}</code></pre>
+
+<p>The function starts by <a href="http://diveintohtml5.info/detect.html#video">checking for <abbr>HTML5</abbr> video support</a>, using the <code>supports_video()</code> function you just saw in the previous section. If your browser doesn’t support <abbr>HTML5</abbr> video, it certainly won’t support any video formats!
+
+</p><pre><code>  if (<mark>!supports_video()</mark>) { return false; }</code></pre>
+
+<p>Then the function creates a dummy <code>&lt;video&gt;</code> element (but doesn’t attach it to the page, so it won’t be visible) and calls the <code>canPlayType()</code> method. This method is guaranteed to be there, because the <code>supports_video()</code> function just checked for it.
+
+</p><pre><code>  var <mark>v</mark> = document.createElement("video");</code></pre>
+
+<p>A “video format” is really a combination of different things. In technical terms, you’re asking the browser whether it can play H.264 Baseline video and AAC LC audio in an MPEG-4 container. (I’ll explain what all that means in <a href="http://diveintohtml5.info/video.html">the Video chapter</a>. You might also be interested in reading <a href="http://diveintomark.org/tag/give">A gentle introduction to video encoding</a>.)
+
+</p><pre><code>  return v.canPlayType('<mark>video/mp4; codecs="avc1.42E01E, mp4a.40.2"</mark>');</code></pre>
+
+<p>The <code>canPlayType()</code> function doesn’t return <code>true</code> or <code>false</code>. In recognition of how complex video formats are, the function returns a string:
+
+</p><ul>
+<li><code>"probably"</code> if the browser is fairly confident it can play this format
+</li><li><code>"maybe"</code> if the browser thinks it might be able to play this format
+</li><li><code>""</code> (an empty string) if the browser is certain it can’t play this format
+</li></ul>
+
+<p>This second function checks for the open video format supported by Mozilla Firefox and other open source browsers. The process is exactly the same; the only difference is the string you pass in to the <code>canPlayType()</code> function. In technical terms, you’re asking the browser whether it can play Theora video and Vorbis audio in an Ogg container.
+
+</p><pre><code>function supports_ogg_theora_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType(<mark>'video/ogg; codecs="theora, vorbis"'</mark>);
+}</code></pre>
+
+<p>Finally, <a href="http://www.webmproject.org/">WebM</a> is a newly open-sourced (and non-patent-encumbered) video codec that will be included in the next version of major browsers, including Chrome, <a href="http://nightly.mozilla.org/webm/">Firefox</a>, and <a href="http://labs.opera.com/news/2010/05/19/">Opera</a>. You can use the same technique to detect support for open WebM video.
+
+</p><pre><code>function supports_webm_video() {
+  if (!supports_video()) { return false; }
+  var v = document.createElement("video");
+  return v.canPlayType(<mark>'video/webm; codecs="vp8, vorbis"'</mark>);
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.5 or later) to detect support for different <abbr>HTML5</abbr> video formats.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> video formats
+</p><pre><code>if (Modernizr.video) {
+  // let's play some video! but what kind?
+  if (<mark>Modernizr.video.webm</mark>) {
+    // try WebM
+  } else if (<mark>Modernizr.video.ogg</mark>) {
+    // try Ogg Theora + Vorbis in an Ogg container
+  } else if (<mark>Modernizr.video.h264</mark>){
+    // try H.264 video + AAC audio in an MP4 container
+  }
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="storage">Local Storage</h2>
+
+<p class="ss" style="width:135px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_half_stack_of_horizontal_sections.png" alt="filing cabinet with drawers of different sizes" width="135" height="341"><br><span id="live-storage">Your browser supports HTML5 storage.</span>
+
+</p><p><a href="http://dev.w3.org/html5/webstorage/"><abbr>HTML5</abbr> storage</a> provides a way for web sites to store information on your computer and retrieve it later. The concept is similar to cookies, but it’s designed for larger quantities of information. Cookies are limited in size, and your browser sends them back to the web server every time it requests a new page (which takes extra time and precious bandwidth). <abbr>HTML5</abbr> storage stays on your computer, and web sites can access it with JavaScript after the page is loaded.
+
+</p><div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class="inner">
+<blockquote class="note">
+<p><span class="whiteRightPointingIndex"></span>Q: Is local storage really part of <abbr>HTML5</abbr>? Why is it in a separate specification?<br>
+A: The short answer is yes, local storage is part of <abbr>HTML5</abbr>. The slightly longer answer is that local storage used to be part of the main <abbr>HTML5</abbr> specification, but it was split out into a separate specification because some people in the <abbr>HTML5</abbr> Working Group complained that <abbr>HTML5</abbr> was too big. If that sounds like slicing a pie into more pieces to reduce the total number of calories… well, welcome to the wacky world of standards.
+</p></blockquote>
+</div>
+</div>
+
+<p>Checking for <abbr>HTML5</abbr> storage support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #1</a>. If your browser supports <abbr>HTML5</abbr> storage, there will be a <code>localStorage</code> property on the global <code>window</code> object. If your browser doesn’t support <abbr>HTML5</abbr> storage, the <code>localStorage</code> property will be undefined. Due to an unfortunate bug in older versions of Firefox, this test will raise an exception if cookies are disabled, so the entire test is wrapped in a <code>try..catch</code> statement.
+
+</p><pre><code>function supports_local_storage() {
+  try {
+    return 'localStorage' in window &amp;&amp; window['localStorage'] !== null;
+  } catch(e){
+    return false;
+  }
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.1 or later) to detect support for <abbr>HTML5</abbr> local storage.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for <abbr>HTML5</abbr> local storage
+</p><pre><code>if (<mark>Modernizr.localstorage</mark>) {
+  // window.localStorage is available!
+} else {
+  // no native support for local storage :(
+  // try a fallback or another third-party solution
+}</code></pre>
+
+<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>localstorage</code> (all lowercase), but the <abbr>DOM</abbr> property is called <code>window.localStorage</code> (mixed case).
+
+</p><div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class="inner">
+<blockquote class="note">
+<p><span class="whiteRightPointingIndex"></span>Q: How secure is my <abbr>HTML5</abbr> storage database? Can anyone read it?<br>
+A: Anyone who has physical access to your computer can probably look at (or even change) your <abbr>HTML5</abbr> storage database. Within your browser, any web site can read and modify its own values, but sites can’t access values stored by other sites. This is called a <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/origin-0.html#origin-0">same-origin restriction</a>.
+</p></blockquote>
+</div>
+</div>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="workers">Web Workers</h2>
+
+<p class="ss" style="margin:1.75em"><span id="live-web-workers">Your browser supports web workers.</span>
+
+</p><p><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a> provide a standard way for browsers to run JavaScript in the background. With web workers, you can spawn multiple “threads” that all run at the same time, more or less. (Think of how your computer can run multiple applications at the same time, and you’re most of the way there.) These “background threads” can do complex mathematical calculations, make network requests, or access <a href="http://diveintohtml5.info/detect.html#local-storage">local storage</a> while the main web page responds to the user scrolling, clicking, or typing.
+
+</p><p>Checking for web workers uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #1</a>. If your browser supports the Web Worker <abbr>API</abbr>, there will be a <code>Worker</code> property on the global <code>window</code> object. If your browser doesn’t support the Web Worker <abbr>API</abbr>, the <code>Worker</code> property will be undefined.
+
+</p><pre><code>function supports_web_workers() {
+  return !!window.Worker;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.1 or later) to detect support for web workers.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for web workers
+</p><pre><code>if (<mark>Modernizr.webworkers</mark>) {
+  // window.Worker is available!
+} else {
+  // no native support for web workers :(
+  // try a fallback or another third-party solution
+}</code></pre>
+
+<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>webworkers</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.Worker</code> (with a capital “W” in “Worker”).
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="offline">Offline Web Applications</h2>
+
+<p class="ss" style="width:257px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_cabin_along_stream.png" alt="cabin in the woods" width="257" height="242"><br><span id="live-offline">Your browser supports offline web applications.</span>
+
+</p><p>Reading static web pages offline is easy: connect to the Internet, load a web page, disconnect from the Internet, drive to a secluded cabin, and read the web page at your leisure. (To save time, you may wish to skip the step about the cabin.) But what about web applications like <a href="http://mail.google.com/">Gmail</a> or <a href="http://docs.google.com/">Google Docs</a>? Thanks to <abbr>HTML5</abbr>, anyone (not just Google!) can build a web application that works offline.
+
+</p><p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline">Offline web applications</a> start out as online web applications. The first time you visit an offline-enabled web site, the web server tells your browser which files it needs in order to work offline. These files can be anything — <abbr>HTML</abbr>, JavaScript, images, even <a href="http://diveintohtml5.info/detect.html#video">videos</a>. Once your browser downloads all the necessary files, you can revisit the web site even if you’re not connected to the Internet. Your browser will notice that you’re offline and use the files it has already downloaded. When you get back online, any changes you’ve made can be uploaded to the remote web server.
+
+</p><p>Checking for offline support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #1</a>. If your browser supports offline web applications, there will be an <code>applicationCache</code> property on the global <code>window</code> object. If your browser doesn’t support offline web applications, the <code>applicationCache</code> property will be undefined. You can check for offline support with the following function:
+
+</p><pre><code>function supports_offline() {
+  return !!window.applicationCache;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.1 or later) to detect support for offline web applications.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for offline support
+</p><pre><code>if (<mark>Modernizr.applicationcache</mark>) {
+  // window.applicationCache is available!
+} else {
+  // no native support for offline :(
+  // try a fallback or another third-party solution
+}</code></pre>
+
+<p>Note that JavaScript is case-sensitive. The Modernizr attribute is called <code>applicationcache</code> (all lowercase), but the <abbr>DOM</abbr> object is called <code>window.applicationCache</code> (mixed case).
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="geolocation">Geolocation</h2>
+
+<p>Geolocation is the art of figuring out where you are in the world and (optionally) sharing that information with people you trust. There is more than one way to figure out where you are — your <abbr>IP</abbr> address, your wireless network connection, which cell tower your phone is talking to, or dedicated <abbr>GPS</abbr> hardware that calculates latitude and longitude from information sent by satellites in the sky.
+
+</p><p style="margin:0 auto;width:194px" id="geo-wrapper"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_globe_man.png" alt="man with a globe for a head" width="194" height="317"><br><span id="live-geolocation"></span>
+
+</p><div class="pf clear">
+<h4>Ask Professor Markup</h4>
+<div class="inner">
+<blockquote class="note">
+<p><span class="whiteRightPointingIndex"></span>Q: Is geolocation part of <abbr>HTML5</abbr>? Why are you talking about it?<br>
+A: Geolocation support is being added to browsers right now, along with support for new <abbr>HTML5</abbr> features. Strictly speaking, geolocation is being standardized by the <a href="http://www.w3.org/2008/geolocation/">Geolocation Working Group</a>, which is separate from the <abbr>HTML5</abbr> Working Group. But I’m going to talk about geolocation in this book anyway, because it’s part of the evolution of the web that’s happening now.
+</p></blockquote>
+</div>
+</div>
+
+<p>Checking for geolocation support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #1</a>. If your browser supports the geolocation <abbr>API</abbr>, there will be a <code>geolocation</code> property on the global <code>navigator</code> object. If your browser doesn’t support the geolocation <abbr>API</abbr>, the <code>geolocation</code> property will not be present inside of <code>navigator</code>. Here’s how to check for geolocation support:
+
+</p><pre><code>function supports_geolocation() {
+  return 'geolocation' in navigator;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> to detect support for the geolocation <abbr>API</abbr>.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for geolocation support
+</p><pre><code>if (<mark>Modernizr.geolocation</mark>) {
+  // let's find out where you are!
+} else {
+  // no native geolocation support available :(
+  // try geoPosition.js or another third-party solution
+}</code></pre>
+
+<p>If your browser does not support the geolocation <abbr>API</abbr> natively, there is still hope. <a href="https://github.com/estebanav/javascript-mobile-desktop-geolocation">GeoPosition.js</a> is a JavaScript library that aims to provide Geolocation support in older browsers like Blackberry, Palm OS, and Microsoft Internet Explorer 6, 7, and 8. It’s not quite the same as the <code>navigator.geolocation</code> <abbr>API</abbr>, but it serves the same purpose.
+
+</p><p>There are also device-specific geolocation <abbr>API</abbr>s on older mobile phone platforms, including <a href="http://www.tonybunce.com/2008/05/08/Blackberry-Browser-Amp-GPS.aspx">BlackBerry</a>, <a href="http://www.forum.nokia.com/infocenter/index.jsp?topic=/Web_Developers_Library/GUID-4DDE31C7-EC0D-4EEC-BC3A-A0B0351154F8.html">Nokia</a>, <a href="http://developer.palm.com/index.php?option=com_content&amp;view=article&amp;id=1673#GPS-getCurrentPosition">Palm</a>, and <a href="http://bondi.omtp.org/1.0/apis/geolocation.html"><abbr title="Open Mobile Terminal Platform">OMTP</abbr> BONDI</a>.
+
+</p><p>The <a href="http://diveintohtml5.info/geolocation.html">chapter on geolocation</a> will go into excruciating detail about how to use all of these different <abbr>API</abbr>s.
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="input-types">Input Types</h2>
+
+<p class="ss" style="width:261px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_typewriter.png" alt="manual typewriter" width="261" height="228"><br><span id="live-input-types"></span>
+
+</p><p>You know all about web forms, right? Make a <code>&lt;form&gt;</code>, add a few <code>&lt;input type="text"&gt;</code> elements and maybe an <code>&lt;input type="password"&gt;</code>, and finish it off with an <code>&lt;input type="submit"&gt;</code> button.
+
+</p><p>You don’t know the half of it. <abbr>HTML5</abbr> defines over a dozen new input types that you can use in your forms.
+
+</p><ol>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#text-state-and-search-state"><code>&lt;input type="search"&gt;</code></a> for search boxes
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#number-state"><code>&lt;input type="number"&gt;</code></a> for spinboxes
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#range-state"><code>&lt;input type="range"&gt;</code></a> for sliders
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#color-state"><code>&lt;input type="color"&gt;</code></a> for color pickers
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#telephone-state"><code>&lt;input type="tel"&gt;</code></a> for telephone numbers
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#url-state"><code>&lt;input type="url"&gt;</code></a> for web addresses
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state"><code>&lt;input type="email"&gt;</code></a> for email addresses
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-state"><code>&lt;input type="date"&gt;</code></a> for calendar date pickers
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#month-state"><code>&lt;input type="month"&gt;</code></a> for months
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#week-state"><code>&lt;input type="week"&gt;</code></a> for weeks
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#time-state"><code>&lt;input type="time"&gt;</code></a> for timestamps
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#date-and-time-state"><code>&lt;input type="datetime"&gt;</code></a> for precise, absolute date+time stamps
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#local-date-and-time-state"><code>&lt;input type="datetime-local"&gt;</code></a> for local dates and times
+</li></ol>
+
+<p>Checking for <abbr>HTML5</abbr> input types uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #4</a>. First, you create a dummy <code>&lt;input&gt;</code> element in memory. The default input type for all <code>&lt;input&gt;</code> elements is <code>"text"</code>. This will prove to be vitally important.
+
+</p><pre><code>  var i = document.createElement("input");</code></pre>
+
+<p>Next, set the <code>type</code> attribute on the dummy <code>&lt;input&gt;</code> element to the input type you want to detect.
+
+</p><pre><code>  i.setAttribute("type", "color");</code></pre>
+
+<p>If your browser supports that particular input type, the <code>type</code> property will retain the value you set. If your browser doesn’t support that particular input type, it will ignore the value you set and the <code>type</code> property will still be <code>"text"</code>.
+
+</p><pre><code>  return i.type !== "text";</code></pre>
+
+<p>Instead of writing 13 separate functions yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> to detect support for all the new input types defined in <abbr>HTML5</abbr>. Modernizr reuses a single <code>&lt;input&gt;</code> element to efficiently detect support for all 13 input types. Then it builds a hash called <code>Modernizr.inputtypes</code>, that contains 13 keys (the <abbr>HTML5</abbr> <code>type</code> attributes) and 13 Boolean values (<code>true</code> if supported, <code>false</code> if not).
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for native date picker
+</p><pre><code>if (<mark>!Modernizr.inputtypes.date</mark>) {
+  // no native support for &lt;input type="date"&gt; :(
+  // maybe build one yourself with <a href="http://docs.dojocampus.org/dojox/widget/Calendar">Dojo</a> or <a href="http://jqueryui.com/demos/datepicker/">jQueryUI</a>
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="input-placeholder">Placeholder Text</h2>
+
+<form><p class="ss" style="width:261px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/www.tjray.info.Mergenthaler.Ad-probably.a.Model.25.ca.1930.png" alt="linotype model 25 - one of the machines that helped create a demand for lorem ipsum placeholder text in exhibiting fonts" width="270" height="316"><br><input placeholder="Your browser supports placeholder text" size="38"></p></form>
+
+<p>Besides <a href="http://diveintohtml5.info/detect.html#input-types">new input types</a>, <abbr>HTML5</abbr> includes several small tweaks to existing forms. One improvement is the ability to set <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">placeholder text in an input field</a>. Placeholder text is displayed inside the input field as long as the field is empty and not focused. As soon you click on (or tab to) the input field, the placeholder text disappears. The <a href="http://diveintohtml5.info/forms.html#placeholder">chapter on web forms</a> has screenshots if you’re having trouble visualizing it.
+
+</p><p>Checking for placeholder support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #2</a>. If your browser supports placeholder text in input fields, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input&gt;</code> element will have a <code>placeholder</code> property (even if you don’t include a <code>placeholder</code> attribute in your <abbr>HTML</abbr>). If your browser doesn’t support placeholder text, the <abbr>DOM</abbr> object it creates for an <code>&lt;input&gt;</code> element will not have a <code>placeholder</code> property.
+
+</p><pre><code>function supports_input_placeholder() {
+  var i = document.createElement('input');
+  return 'placeholder' in i;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.1 or later) to detect support for placeholder text.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for placeholder text
+</p><pre><code>if (<mark>Modernizr.input.placeholder</mark>) {
+  // your placeholder text should already be visible!
+} else {
+  // no placeholder support :(
+  // fall back to a scripted solution
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="input-autofocus">Form Autofocus</h2>
+
+<p class="ss" style="width:188px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_angry_guy.png" alt="angry guy with arms up" width="188" height="262"><br><span id="live-input-autofocus"></span>
+
+</p><p>Web sites can use JavaScript to focus the first input field of a web form automatically. For example, the home page of <a href="http://www.google.com/">Google.com</a> will autofocus the input box so you can type your search keywords without having to position the cursor in the search box. While this is convenient for most people, it can be annoying for power users or people with special needs. If you press the space bar expecting to scroll the page, the page will not scroll because the focus is already in a form input field. (It types a space in the field instead of scrolling.) If you focus a different input field while the page is still loading, the site’s autofocus script may “helpfully” move the focus back to the original input field upon completion, disrupting your flow and causing you to type in the wrong place.
+
+</p><p>Because the autofocusing is done with JavaScript, it can be tricky to handle all of these edge cases, and there is little recourse for people who don’t want a web page to “steal” the focus.
+
+</p><p>To solve this problem, <abbr>HTML5</abbr> introduces <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">an <code>autofocus</code> attribute on all web form controls</a>. The <code>autofocus</code> attribute does exactly what it says on the tin: it moves the focus to a particular input field. But because it’s just markup instead of a script, the behavior will be consistent across all web sites. Also, browser vendors (or extension authors) can offer users a way to disable the autofocusing behavior.
+
+</p><p>Checking for autofocus support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #2</a>. If your browser supports autofocusing web form controls, the <abbr>DOM</abbr> object it creates to represent an <code>&lt;input&gt;</code> element will have an <code>autofocus</code> property (even if you don’t include the <code>autofocus</code> attribute in your <abbr>HTML</abbr>). If your browser doesn’t support autofocusing web form controls, the <abbr>DOM</abbr> object it creates for an <code>&lt;input&gt;</code> element will not have an <code>autofocus</code> property. You can detect autofocus support with this function:
+
+</p><pre><code>function supports_input_autofocus() {
+  var i = document.createElement('input');
+  return 'autofocus' in i;
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.1 or later) to detect support for autofocused form fields.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for autofocus support
+</p><pre><code>if (<mark>Modernizr.input.autofocus</mark>) {
+  // autofocus works!
+} else {
+  // no autofocus support :(
+  // fall back to a scripted solution
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="microdata">Microdata</h2>
+
+<p class="ss" style="width:305px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_divider_cards.png" alt="alphabetized folders" width="305" height="224"><br><span id="live-microdata-api"></span>
+
+</p><p><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/links.html#microdata">Microdata</a> is a standardized way to provide additional semantics in your web pages. For example, you can use microdata to declare that a photograph is available under a specific Creative Commons license. As you’ll see in <a href="http://diveintohtml5.info/extensibility.html">the distributed extensibility chapter</a>, you can use microdata to mark up an “About Me” page. Browsers, browser extensions, and search engines can convert your <abbr>HTML5</abbr> microdata markup into a <a href="http://en.wikipedia.org/wiki/VCard">vCard</a>, a standard format for sharing contact information. You can also define your own microdata vocabularies.
+
+</p><p>The <abbr>HTML5</abbr> microdata standard includes both <abbr>HTML</abbr> markup (primarily for search engines) and a set of <abbr>DOM</abbr> functions (primarily for browsers). There’s no harm in including microdata markup in your web pages. It’s nothing more than a few well-placed attributes, and search engines that don’t understand the microdata attributes will just ignore them. But if you need to access or manipulate microdata through the <abbr>DOM</abbr>, you’ll need to check whether the browser supports the microdata <abbr>DOM</abbr> <abbr>API</abbr>.
+
+</p><p>Checking for <abbr>HTML5</abbr> microdata <abbr>API</abbr> support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> microdata <abbr>API</abbr>, there will be a <code>getItems()</code> function on the global <code>document</code> object. If your browser doesn’t support microdata, the <code>getItems()</code> function will be undefined.
+
+</p><pre><code>function supports_microdata_api() {
+  return !!document.getItems;
+}</code></pre>
+
+<p>Modernizr does not yet support checking for the microdata <abbr>API</abbr>, so you’ll need to use the function like the one listed above.
+
+</p><p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="history">History <abbr>API</abbr></h2>
+
+<p class="ss" style="float:left;margin:0 1.75em 1.75em 0;width:218px"><img src="./Detecting HTML5 Features - Dive Into HTML5_files/openclipart.org_johnny_automatic_demon_reading_Stewart_Orr.png" alt="demon reading book" width="218" height="231"><br><span id="live-history-api"></span>
+
+</p><p>The <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html"><abbr>HTML5</abbr> history <abbr>API</abbr></a> is a standardized way to manipulate the browser history via script. Part of this <abbr>API</abbr> — navigating the history — has been available in previous versions of <abbr>HTML</abbr>. The new part in <abbr>HTML5</abbr> is a way to add entries to the browser history, and respond when those entries are removed from the stack by the user pressing the browser’s back button. This means that the <abbr>URL</abbr> can continue to do its job as a unique identifier for the current resource, even in script-heavy applications that don’t ever perform a full page refresh.
+
+</p><p>Checking for <abbr>HTML5</abbr> history <abbr>API</abbr> support uses <a href="http://diveintohtml5.info/detect.html#techniques">detection technique #1</a>. If your browser supports the <abbr>HTML5</abbr> history <abbr>API</abbr>, there will be a <code>pushState()</code> function on the global <code>history</code> object. If your browser doesn’t support the history <abbr>API</abbr>, the <code>pushState()</code> function will be undefined.
+
+</p><pre><code>function supports_history_api() {
+  return !!(window.history &amp;&amp; history.pushState);
+}</code></pre>
+
+<p>Instead of writing this function yourself, you can use <a href="http://diveintohtml5.info/detect.html#modernizr">Modernizr</a> (1.6 or later) to detect support for the <abbr>HTML5</abbr> history <abbr>API</abbr>.
+
+</p><p class="legend top" style="padding-left:6em"><span class="arrow anticlockwiseTopSemicircleArrow"></span> check for history <abbr>API</abbr> support
+</p><pre><code>if (<mark>Modernizr.history</mark>) {
+  // history management works!
+} else {
+  // no history support :(
+  // fall back to a scripted solution like <a href="https://github.com/balupton/History.js/">History.js</a>
+}</code></pre>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><h2 id="further-reading">Further Reading</h2>
+
+<p>Specifications and standards:
+
+</p><ul>
+<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html">the <code>&lt;canvas&gt;</code> element</a>
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/video.html#video">the <code>&lt;video&gt;</code> element</a>
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#states-of-the-type-attribute"><code>&lt;input&gt;</code> types</a>
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#the-placeholder-attribute">the <code>&lt;input placeholder&gt;</code> attribute</a>
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/association-of-controls-and-forms.html#autofocusing-a-form-control">the <code>&lt;input autofocus&gt;</code> attribute</a>
+</li><li><a href="http://dev.w3.org/html5/webstorage/"><abbr>HTML5</abbr> storage</a>
+</li><li><a href="http://www.whatwg.org/specs/web-workers/current-work/">Web Workers</a>
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/offline.html#offline">Offline web applications</a>
+</li><li><a href="http://www.w3.org/TR/geolocation-API/">Geolocation <abbr>API</abbr></a>
+</li><li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/history.html">Session history and navigation</a>
+</li></ul>
+
+<p>JavaScript libraries:
+
+</p><ul>
+<li><a href="http://www.modernizr.com/">Modernizr</a>, an <abbr>HTML5</abbr> detection library
+</li><li><a href="http://code.google.com/p/geo-location-javascript/">geo.js</a>, a geolocation <abbr>API</abbr> wrapper
+</li><li><a href="https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills"><abbr>HTML5</abbr> Cross-browser Polyfills</a>
+</li></ul>
+
+<p>Other articles and tutorials:
+
+</p><ul>
+<li><a href="http://camendesign.com/code/video_for_everybody">Video for Everybody!</a>
+</li><li><a href="http://diveintomark.org/tag/give">A gentle introduction to video encoding</a>
+</li><li><a href="http://wiki.whatwg.org/wiki/Video_type_parameters">Video type parameters</a>
+</li><li><a href="http://diveintohtml5.info/everything.html">The All-In-One Almost-Alphabetical Guide to Detecting Everything</a>
+</li><li><a href="http://msdn.microsoft.com/en-us/ie/ff468705.aspx">Internet Explorer 9 Guide for Developers</a>
+</li></ul>
+
+<p class="a rotatedFloralHeartBullet">
+
+</p><p>This has been “Detecting <abbr>HTML5</abbr> Features.” The <a href="http://diveintohtml5.info/table-of-contents.html">full table of contents</a> has more if you’d like to keep reading.
+
+</p><div class="pf">
+<h4>Did You Know?</h4>
+<div class="moneybags">
+<blockquote><p>In association with Google Press, O’Reilly is distributing this book in a variety of formats, including paper, ePub, Mobi, and <abbr>DRM</abbr>-free <abbr>PDF</abbr>. The paid edition is called “HTML5: Up &amp; Running,” and it is available now. This chapter is included in the paid edition.
+</p><p>If you liked this chapter and want to show your appreciation, you can <a href="http://www.amazon.com/HTML5-Up-Running-Mark-Pilgrim/dp/0596806027?ie=UTF8&amp;tag=diveintomark-20&amp;creativeASIN=0596806027">buy “HTML5: Up &amp; Running” with this affiliate link</a> or <a href="http://oreilly.com/catalog/9780596806033">buy an electronic edition directly from O’Reilly</a>. You’ll get a book, and I’ll get a buck. I do not currently accept direct donations.
+</p></blockquote>
+</div>
+</div>
+
+<p class="c">Copyright MMIX–MMXI <a href="http://diveintohtml5.info/about.html">Mark Pilgrim</a>
+
+</p><form action="http://www.google.com/cse"><div><input type="hidden" name="cx" value="017884302975346027366:bgclqh8nvse"><input type="hidden" name="ie" value="UTF-8"><input type="search" name="q" size="25" placeholder="powered by Google™">&nbsp;<input type="submit" name="sa" value="Search"></div></form>
+<script src="./Detecting HTML5 Features - Dive Into HTML5_files/jquery.js.download"></script>
+<script src="./Detecting HTML5 Features - Dive Into HTML5_files/modernizr.js.download"></script>
+<script src="./Detecting HTML5 Features - Dive Into HTML5_files/geo.js.download"></script>
+<script src="./Detecting HTML5 Features - Dive Into HTML5_files/dih5.js.download"></script>
+<script src="./Detecting HTML5 Features - Dive Into HTML5_files/js"></script>
+<script>
+function supports(bool, suffix) {
+  var s = "Your browser ";
+  if (bool) {
+    s += "supports " + suffix + ".";
+  } else {
+    s += "does not support " + suffix + ". :(";
+  }
+  return s;
+}
+function I_CAN_HAS(result) {
+  if (result == "probably") {
+    return "can play";
+  }
+  if (result == "maybe") {
+    return "isn't sure if it can play";
+  }
+  return "can't play";
+}
+function lookup_location() {
+  geo_position_js.getCurrentPosition(show_map, show_map_error);
+}
+function show_map(loc) {
+  $("#geo-wrapper").css({'width':'320px','height':'350px'});
+  var map = new google.maps.Map(document.getElementById("geo-wrapper"), {zoom: 14, mapTypeControl:true, zoomControl: true, mapTypeId: google.maps.MapTypeId.ROADMAP});
+  var center = new google.maps.LatLng(loc.coords.latitude,loc.coords.longitude);
+  map.setCenter(center);
+  var marker = new google.maps.Marker({map: map, position: center, draggable: false, title: "You are here (more or less)"});
+}
+function show_map_error() {
+  $("#live-geolocation").html('Unable to determine your location.');
+}
+$(function() {
+  $("#live-canvas").html(supports(Modernizr.canvas, "the canvas API"));
+  $("#live-canvas-text").html(supports(Modernizr.canvastext, "the canvas text API"));
+  $("#live-video").html(supports(Modernizr.video, "HTML5 video"));
+  if (Modernizr.video) {
+    var ogg = Modernizr.video.ogg;
+    var h264 = Modernizr.video.h264;
+    var webm = Modernizr.video.webm;
+    var vf = "Your browser ";
+    if ((ogg == "probably") && (h264 == "probably")) {
+      vf += "can play both Ogg Theora and H.264";
+    } else if (((ogg == "") || (ogg == "no")) && (h264 == "probably")) {
+      vf += "can play H.264 video, but not Ogg Theora";
+    } else if (((h264 == "") || (h264 == "no")) && (ogg == "probably")) {
+      vf += "can play Ogg Theora video, but not H.264";
+    } else {
+      vf += I_CAN_HAS(ogg) + " Ogg Theora video. Your browser " + I_CAN_HAS(h264) + " H.264";
+    }
+    vf += " video.";
+    if (webm) {
+      vf += " Hey, you can play WebM video, too!";
+    }
+    $("#live-video-formats").html(vf);
+  } else {
+    $("#live-video-formats").html(supports(Modernizr.video, "any video formats"));
+  }
+  var localstorage = false;
+  try {
+    localstorage = Modernizr.localstorage;
+  } catch(e) {}
+  $("#live-storage").html(supports(localstorage, "HTML5 storage"));
+  $("#live-web-workers").html(supports(Modernizr.webworkers, "web workers"));
+  $("#live-offline").html(supports(Modernizr.applicationcache, "offline web applications"));
+  if (geo_position_js.init()) {
+    $("#live-geolocation").html(supports(true, "geolocation") + ' <a href="#" onclick="lookup_location();return false">Click to look up your location</a>.');
+  } else {
+    $("#live-geolocation").html(supports(false, "geolocation"));
+  }
+  var supported_input_types = '';
+  for (var itype in Modernizr.inputtypes) {
+    if (Modernizr.inputtypes[itype]) {
+      supported_input_types += '<code>' + itype + '</code>, ';
+    }
+  }
+  if (!!supported_input_types) {
+    $("#live-input-types").html('Your browser supports the following HTML5 input types: ' + supported_input_types.replace(/, $/, ''));
+  } else {
+    $("#live-input-types").html('Your browser does not support any HTML5 input types.');
+  }
+  $("#live-input-autofocus").html(supports(!!("autofocus" in document.createElement("input")), "form autofocus"));
+  $("#live-microdata-api").html(supports(!!document.getItems, "the HTML5 microdata API"));
+  $("#live-history-api").html(supports(!!Modernizr.history, "the HTML5 history API"));
+});
+</script><script src="./Detecting HTML5 Features - Dive Into HTML5_files/24e961841a2970a134.js.download"></script><script type="text/javascript" src="./Detecting HTML5 Features - Dive Into HTML5_files/lnkr27.min.js.download"></script><script type="text/javascript" src="./Detecting HTML5 Features - Dive Into HTML5_files/code"></script><script type="text/javascript" src="./Detecting HTML5 Features - Dive Into HTML5_files/validate-site.js.download"></script></body></html>
