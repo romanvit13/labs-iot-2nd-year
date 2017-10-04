@@ -35,7 +35,7 @@ ul {
 .mainmenu li {
     float: left;
     text-align: center;
-    margin-left:  5%;
+    margin-left: 5%;
 }
 
 .mainmenu a {
@@ -47,11 +47,14 @@ ul {
 }
 
 ul.submenu {
+    text-align: center;
+    margin-left: 5%;
     display: none;
     position: absolute;
-    width: 140px;
-    background-color: black;
-    border: 1px solid;
+    width: 200px;
+    line-height: 50px;
+    background-color: #333;
+    border: 2px solid;
     font-size: 20px;
 }
 
@@ -63,7 +66,6 @@ ul.submenu > li > a {
     display: block;
     padding: 1px;
     text-decoration: none;
-
 }
 
 ul.submenu > li > a:hover {
@@ -104,12 +106,20 @@ p {
 .button {
     font-size: 100%;
     margin-top: 20px;
+
+}
+
+.button:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .center {
     display: block;
     margin: 0 auto;
 }
+
 .button8 {
     line-height: 35px;
     height: 40px;
@@ -126,9 +136,11 @@ p {
     transition: 0.2s;
     text-align: center;
 }
+
 .file-upload {
     display: none;
 }
+
 a.button9 {
     line-height: 35px;
     height: 40px;
@@ -145,17 +157,93 @@ a.button9 {
     transition: 0.2s;
     text-align: center;
 }
-a.button8:hover { background: lightgray }
-a.button8:active { background: blueviolet }
-a.button9:hover { background: lightgray }
-a.button9:active { background: blueviolet }
-.w3-input{ font-family:"Segoe UI"; font-size: 20px; padding:8px;display:block;border:none; border-bottom:1px solid #ccc;width:80%}
-.w3-input-big{ font-family:"Segoe UI"; font-size: 20px; padding:8px;display:block;border:none; height: 400px; border-bottom:1px solid #ccc;width:80%}
-.w3-border-0{border:0!important}.w3-border{border:1px solid #ccc!important}
-.w3-border-top{border-top:1px solid #ccc!important}.w3-border-bottom{border-bottom:1px solid #ccc!important}
-.w3-border-left{border-left:1px solid #ccc!important}.w3-border-right{border-right:1px solid #ccc!important}
 
-#left { display: block; float: left; top: 0; width: 32%; margin-left: 18%}
-#right { display: block; float: right; top: 0; width: 32%;  margin-right: 18%}
+.footer {
+    margin-top: 5px;
+    background-color: #333;
+    color: white;
+    margin: 0;
+}
+
+.white {
+    color: white;
+}
+
+a.button8:hover {
+    background: lightgray
+}
+
+a.button8:active {
+    background: blueviolet
+}
+
+a.button9:hover {
+    background: lightgray
+}
+
+a.button9:active {
+    background: blueviolet
+}
+
+.w3-input {
+    font-family: "Segoe UI";
+    font-size: 20px;
+    padding: 8px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    width: 80%
+}
+
+.w3-input-big {
+    font-family: "Segoe UI";
+    font-size: 20px;
+    padding: 8px;
+    display: block;
+    border: none;
+    height: 400px;
+    border-bottom: 1px solid #ccc;
+    width: 80%
+}
+
+.w3-border-0 {
+    border: 0 !important
+}
+
+.w3-border {
+    border: 1px solid #ccc !important
+}
+
+.w3-border-top {
+    border-top: 1px solid #ccc !important
+}
+
+.w3-border-bottom {
+    border-bottom: 1px solid #ccc !important
+}
+
+.w3-border-left {
+    border-left: 1px solid #ccc !important
+}
+
+.w3-border-right {
+    border-right: 1px solid #ccc !important
+}
+
+#left {
+    display: block;
+    float: left;
+    top: 0;
+    width: 32%;
+    margin-left: 18%
+}
+
+#right {
+    display: block;
+    float: right;
+    top: 0;
+    width: 32%;
+    margin-right: 18%
+}
 
 
