@@ -14,9 +14,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: "Segoe UI";
+    margin: 40px;
+    font-family: "Arial", serif;
     font-weight: 300;
-    color: #333;;
+    text-align: center;
+    color: #333;
 }
 
 p {
@@ -73,7 +75,7 @@ hr {
 }
 
 #headerwrap {
-    background: url(background_edit1.jpg);
+    background: url(images/background_edit1.jpg);
     margin-top: -10px;
     padding-top: 20px;
 
@@ -194,6 +196,11 @@ hr {
 .footer {
     margin-top: 5px;
     background: #2d2d2d;
-    color: white;
+    color: grey;
     margin: 0;
 }
+
+.footer:hover {
+    color: #ff7878;
+}
+

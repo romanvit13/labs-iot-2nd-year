@@ -26,7 +26,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">Головна</a></li>
-                <li><a href="news.html">Новини</a></li>
+                <li><a href="#">Новини</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Студентам<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -35,9 +35,9 @@
                         <li><a href="#">Література</a></li>
                     </ul>
                 </li>
-                <li><a href="response.html">Відгуки</a></li>
+                <li class="active"><a href="response.html">Відгуки</a></li>
                 <li><a href="contacts.html">Контакти</a></li>
-                <li class="active"><a href="admin.html">Адмін</a></li>
+                <li><a href="admin.html">Адмін</a></li>
             </ul>
         </div>
     </div>
@@ -47,32 +47,73 @@
 
     <div class="container">
         <div class="main-text">
-            <h2>Додати новину</h2>
-            <br>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group">
-                    <label>Виберіть зображення</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                    <br>
-                    <img src="picture.svg" width="80%">
-                </div>
+            <h2>Відгуки</h2>
+            <div class="container" style="border-bottom: dotted 1px">
+                <br>
+                <span class="review-author">Віт Роман</span>
+                <span class="review-date">11.11.2017, 14:00</span>
+
+                <p>
+                    <br>Прекрасний ресурс, я задоволений на всі 100%! Дякую за те, що вчасно оновлюєте новини.
+                </p><br>
             </div>
 
-            <div class="col-lg-6 col-md-6">
-                <div>
-                    <input type="text" class="form-control" placeholder="Заголовок">
-                </div>
+
+            <div class="container" style="border-bottom: dotted 1px">
                 <br>
+                <span class="review-author">Лобурев Дмитро</span>
+                <span class="review-date">11.11.2017, 14:00</span>
+
+                <p>
+                    <br>Ніби все непогано, але я би ще додав можливість правки деяких статей.
+                </p><br>
+            </div>
+
+            <div class="container" style="border-bottom: dotted 1px">
+                <br>
+                <span class="review-author">Лобурев Дмитро</span>
+                <span class="review-date">11.11.2017, 14:00</span>
+
+                <p>
+                    <br>Не сподобалось те, що немає пошуку по сайту. Додайте таку опцію будь ласка! Загалом супер. Порекомендую усім друзям.
+                </p><br>
+            </div>
+
+
+            <form class="container">
+
+                <h4>Новий відгук</h4>
                 <div class="form-group">
-                    <textarea class="form-control" rows="15" placeholder="Новина"></textarea>
-                </div>
-                <br>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Відправити <span class="glyphicon glyphicon-send"></span></button>
+
+
+                    <div class="col-lg-6">
+                        <input type="text" class="form-control" placeholder="Ім'я">
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" class="form-control" placeholder="Прізвище">
+                    </div>
+
+                    <br><br>
+                    <div class="col-lg-12">
+
+                        <textarea class="form-control" rows="7" placeholder="Новий відгук..."></textarea>
+
+                        <br>
+
+
+                        <button type="submit" class="btn btn-primary" style="float: right">Відправити <span
+                                class="glyphicon glyphicon-send"></span></button>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
                     </div>
                 </div>
-            </div>
+            </form>
+
+
+
         </div>
     </div>
 
@@ -90,7 +131,7 @@
         <p align="center"><a class="footer" href="romanvit13@gmail.com">romanvit13@gmail.com</a></p>
         <br>
     </footer>
-    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
