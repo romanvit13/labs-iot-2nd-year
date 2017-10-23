@@ -22,7 +22,7 @@ def quicksort(input_array, left, right):
     while left < j or i < right:
         quicksort_compares = quicksort_compares + 1
 
-        while input_array[i] < pivot:
+        while input_array[i] <= pivot:
             quicksort_compares = quicksort_compares + 1
             i = i + 1
 
@@ -54,7 +54,9 @@ def quicksort(input_array, left, right):
 def main():
     quicksort_start_time = time.time()
     array = get_array()
+    print array
     quicksort(array, 0, len(array) - 1)
+    print array
     quicksort_time = time.time() - quicksort_start_time
     quicksort_time = round(quicksort_time, 5)
     print quicksort_time
