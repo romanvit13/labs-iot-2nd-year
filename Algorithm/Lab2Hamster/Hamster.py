@@ -20,9 +20,6 @@ def main():
 
     summary = count(hum_amount, hamster_map, hum_eat)
 
-    print hum_eat
-    print summary
-
     while all_food < summary:
         hamster_map.remove(hamster_map[hum_amount - 1])
         hum_eat.remove(hum_eat[hum_amount - 1])
@@ -31,8 +28,6 @@ def main():
         del hum_eat[:]
         summary = count(hum_amount, hamster_map, hum_eat)
 
-    print hum_eat
-    print summary
     print hum_amount
 
 

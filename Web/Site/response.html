@@ -75,43 +75,29 @@
                 <span class="review-date">11.11.2017, 14:00</span>
 
                 <p>
-                    <br>Не сподобалось те, що немає пошуку по сайту. Додайте таку опцію будь ласка! Загалом супер. Порекомендую усім друзям.
+                    <br>Не сподобалось те, що немає пошуку по сайту. Додайте таку опцію будь ласка! Загалом супер.
+                    Порекомендую усім друзям.
                 </p><br>
             </div>
 
+            <div id="reviews-list">
 
-            <form class="container">
+            </div>
 
+            <form class="container" id="form">
                 <h4>Новий відгук</h4>
                 <div class="form-group">
-
-
-                    <div class="col-lg-6">
-                        <input type="text" class="form-control" placeholder="Ім'я">
+                    <div class="col-xs-12">
+                        <input id="name" type="text" class="form-control" placeholder="Прізвище Ім'я">
                     </div>
-                    <div class="col-lg-6">
-                        <input type="text" class="form-control" placeholder="Прізвище">
-                    </div>
-
                     <br><br>
-                    <div class="col-lg-12">
-
-                        <textarea class="form-control" rows="7" placeholder="Новий відгук..."></textarea>
-
+                    <div class="col-xs-12">
+                        <textarea id="text" class="form-control" rows="7" placeholder="Новий відгук..."></textarea>
                         <br>
-
-
-                        <button type="submit" class="btn btn-primary" style="float: right">Відправити <span
-                                class="glyphicon glyphicon-send"></span></button>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-
+                        <input type="button" value="Надіслати" class="btn btn-primary" onclick=send()>
                     </div>
                 </div>
             </form>
-
 
 
         </div>
@@ -132,6 +118,7 @@
         <br>
     </footer>
 </div>
+<script src="js/response.js"></script>
 <script src='js/jquery.min.js'></script>
 <script src='js/scroolreveal.js'></script>
 <script src='js/bootstrap.min.js'></script>
