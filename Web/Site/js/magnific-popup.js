@@ -345,15 +345,15 @@
                 mfp._addClassToMFP(classesToadd);
             }
 
-            // add content
+            // newsAdd content
             mfp.updateItemHTML();
 
             _mfpTrigger('BuildControls');
 
-            // remove scrollbar, add margin e.t.c
+            // remove scrollbar, newsAdd margin e.t.c
             $('html').css(windowStyles);
 
-            // add everything to DOM
+            // newsAdd everything to DOM
             mfp.bgOverlay.add(mfp.wrap).prependTo(mfp.st.prependTo || $(document.body));
 
             // Save last focused element
@@ -366,7 +366,7 @@
                     mfp._addClassToMFP(READY_CLASS);
                     mfp._setFocus();
                 } else {
-                    // if content is not defined (not loaded e.t.c) we add class only for BG
+                    // if content is not defined (not loaded e.t.c) we newsAdd class only for BG
                     mfp.bgOverlay.addClass(READY_CLASS);
                 }
 

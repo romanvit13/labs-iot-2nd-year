@@ -10,7 +10,7 @@
 
 
 </head>
-<body>
+<body onload="getNews()">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -47,7 +47,7 @@
 <div class="container">
     <div class="main-text">
         <h2>Останні новини</h2>
-        <div class="row">
+        <div id = "news-list" class="row">
             <div class="col-md-4">
                 <div class="thumbnail">
                     <a href="#">
@@ -107,5 +107,6 @@
 <script src='js/scroolreveal.js'></script>
 <script src='js/bootstrap.min.js'></script>
 <script src='js/magnific-popup.js'></script>
+<script src="js/getNews.js"></script>
 </body>
 </html>
