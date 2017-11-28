@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" manifest="manifest.cache">
+<html lang="en" manifest="manifest.appcache">
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/magnific-popup.css'>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body onload="getResponse()">
 
@@ -92,8 +92,7 @@
                     <div class="col-xs-12">
                         <textarea id="text" class="form-control" rows="7" placeholder="Новий відгук..."></textarea>
                         <br>
-                        <input type="button" value="Надіслати" class="btn btn-primary" onclick="return addRespondOnline();">
-                        <input type="button" value="Зберегти локально" class="btn btn-primary" onclick="return addRespondOffline();">
+                        <input type="button" value="Надіслати" class="btn btn-primary" onclick="return addResponse();">
                     </div>
                 </div>
             </form>
@@ -118,10 +117,10 @@
     </footer>
 </div>
 <script src="js/respond.js"></script>
-<script src='js/jquery.min.js'></script>
-<script src='js/scroolreveal.js'></script>
-<script src='js/bootstrap.min.js'></script>
-<script src='js/magnific-popup.js'></script>
+<script src='js/bootstrap/jquery.min.js'></script>
+<script src='js/bootstrap/scroolreveal.js'></script>
+<script src='js/bootstrap/bootstrap.min.js'></script>
+<script src='js/bootstrap/magnific-popup.js'></script>
 
 </body>
 

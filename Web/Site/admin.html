@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html manifest="manifest.appcache">
 <head>
     <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
     <title>Судові реформи</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/magnific-popup.css'>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg">
 
 </head>
@@ -50,13 +49,12 @@
     <div class="container">
         <div class="main-text">
             <h2>Додати новину</h2>
-            <br>
 
             <div class="col-md-6">
                 <form id="news-img-form">
                     <label>Виберіть зображення</label>
                     <input id="news-img" type="file" class="form-control-file">
-                    <img src="picture.svg" width="80%">
+                    <img src="images/picture.svg" width="80%">
                 </form>
             </div>
 
@@ -66,8 +64,7 @@
                     <br>
                     <textarea id="news-text" class="form-control" rows="15" placeholder="Новина"></textarea>
                     <br>
-                    <input type="button" value="Надіслати" class="btn btn-primary" onclick="onlineNewsAdd()">
-                    <input type="button" value="Зберегти локально" class="btn btn-primary" onclick="localNewsAdd()">
+                    <input type="button" value="Надіслати" class="btn btn-primary" onclick="newsAdd()">
                 </form>
             </div>
         </div>
@@ -89,11 +86,11 @@
     </footer>
     </div>
 
-<script src="js/addNews.js"></script>
-<script src='js/jquery.min.js'></script>
-<script src='js/scroolreveal.js'></script>
-<script src='js/bootstrap.min.js'></script>
-<script src='js/magnific-popup.js'></script>
+<script src="js/admin.js"></script>
+<script src='js/bootstrap/jquery.min.js'></script>
+<script src='js/bootstrap/scroolreveal.js'></script>
+<script src='js/bootstrap/bootstrap.min.js'></script>
+<script src='js/bootstrap/magnific-popup.js'></script>
 
 </body>
 

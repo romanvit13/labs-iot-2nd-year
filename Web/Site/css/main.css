@@ -75,7 +75,7 @@ hr {
 }
 
 #headerwrap {
-    background: url(images/background_edit1.jpg);
+    background: url(../images/background.jpg);
     margin-top: -10px;
     padding-top: 20px;
 
@@ -216,5 +216,11 @@ hr {
 
 .error-actions .btn {
     margin-right: 10px;
+}
+
+@media screen and (max-width: 1050px) {
+    .main-text > h2 {
+        padding-top: 60px;
+    }
 }
 
