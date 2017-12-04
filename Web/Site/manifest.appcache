@@ -4,9 +4,11 @@ index.html
 contacts.html
 admin.html
 response.html
+news.html
 
 css/main.css
 css/bootstrap.min.css
+css/magnific-popup.css
 
 images/auction.png
 images/balance.png

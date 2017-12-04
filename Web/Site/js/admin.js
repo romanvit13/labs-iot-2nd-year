@@ -1,4 +1,4 @@
-var i = 0;
+var index = 0;
 
 function isOnline() {
     return window.navigator.onLine;
@@ -16,14 +16,13 @@ function newsAdd() {
             $('#news-text').val('');
             alert('Новину успішно додано');
         } else {
-            i++;
-            listOfNews.push({
-                "News name": $('#news-name').val(),
-                "News text": $('#news-text').val(),
-            });
-            localStorage.setItem(i, JSON.stringify(listOfNews));
-            $('#news-name').val('');
-            $('#news-text').val('');
+            var caption = document.getElementById('caption').value;
+            var text = document.getElementById('text').value;
+            index ++;
+            var objects = [];
+            objects.push({"caption":caption,"text":text});
+            localStorage.setItem(index , JSON.stringify(objects));
+            document.getElementById('newsForm').reset();
             alert("Відсутній зв'зязок, збережено в локальному сховищі.");
         }
     }

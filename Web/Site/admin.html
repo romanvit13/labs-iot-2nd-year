@@ -51,7 +51,7 @@
             <h2>Додати новину</h2>
 
             <div class="col-md-6">
-                <form id="news-img-form">
+                <form id="addPicture">
                     <label>Виберіть зображення</label>
                     <input id="news-img" type="file" class="form-control-file">
                     <img src="images/picture.svg" width="80%">
@@ -59,10 +59,10 @@
             </div>
 
             <div class="col-md-6">
-                <form id="news-form">
-                    <input id="news-name" type="text" class="form-control" placeholder="Заголовок">
+                <form id="newsForm">
+                    <input id="caption" type="text" class="form-control" placeholder="Заголовок">
                     <br>
-                    <textarea id="news-text" class="form-control" rows="15" placeholder="Новина"></textarea>
+                    <textarea id="text" class="form-control" rows="15" placeholder="Новина"></textarea>
                     <br>
                     <input type="button" value="Надіслати" class="btn btn-primary" onclick="newsAdd()">
                 </form>
