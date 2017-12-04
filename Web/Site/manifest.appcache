@@ -27,6 +27,7 @@ js/respond.js
 js/admin.js
 js/news.js
 js/respond.js
+js/indexedDb.js
 
 FALLBACK:
 error.html
