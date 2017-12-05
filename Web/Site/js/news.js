@@ -1,8 +1,12 @@
+function isOnline() {
+    return window.navigator.onLine;
+}
 window.addEventListener('load', function () {
 
     function updateOnlineStatus(event) {
         if (isOnline()) {
             getNews();
+            alert('Завантажено!');
         }
     }
 
@@ -11,14 +15,10 @@ window.addEventListener('load', function () {
 });
 
 useLocalStorage = false;
-
-function isOnline() {
-    return window.navigator.onLine;
-}
-
+var lab8 = true;
 
 function getNews() {
-    if (useLocalStorage) {
+    if (lab8) {
         leng = localStorage.length + 1;
         for (var i = 1; i < leng; i++) {
             news = JSON.parse(localStorage.getItem(i));
@@ -31,6 +31,7 @@ function getNews() {
                 "</div> <p>" + news[0].text + "</p> </a></div></div>";
             parentElem.appendChild(out);
             localStorage.removeItem(i);
+            alert('Отримано з Local storage');
         }
     } else {
         var transaction = db.transaction(["news"], "readonly");
@@ -41,20 +42,12 @@ function getNews() {
                 cursor.continue();
                 var parentElem = document.getElementById('newsList');
                 var out = document.createElement('div');
-                out.id = 'news';
-                // out.innerHTML =
-                //     "<div class='col-md-4'>" +
-                // "<div class='card'> " +
-                // "<a href='#'> " +
-                // "<img src='" + cursor.value.img + "' width='100%'>" +
-                // "<div class='caption'><p>" + cursor.value.name + "</p></div>" +
-                // " <p>" + cursor.value.text + "</p>" +
-                // "</a></div></div>";
                 out.innerHTML =
                     "<div class='col-md-4' ><div class='thumbnail'> <a href='#'> <img src='images/news3.jpg'>" +
                     "<div class='caption'><p>" + cursor.value.caption + "</p>" +
                     "</div> <p>" + cursor.value.text + "</p> </a></div></div>";
                 parentElem.appendChild(out);
+                alert('Отримано з IndexDB');
             }
         }
     }

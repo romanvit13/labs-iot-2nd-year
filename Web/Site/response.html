@@ -10,7 +10,7 @@
     <link rel='stylesheet' href='css/magnific-popup.css'>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body onload="getResponse()">
+<body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -46,7 +46,7 @@
 <div>
 
     <div  class="container">
-        <div id = "reviews-list"class="main-text">
+        <div id = "reviewsList"class="main-text">
             <h2>Відгуки</h2>
             <div class="container" style="border-bottom: dotted 1px">
                 <br>
@@ -90,9 +90,9 @@
                     </div>
                     <br><br>
                     <div class="col-xs-12">
-                        <textarea id="text" class="form-control" rows="7" placeholder="Новий відгук..."></textarea>
+                        <textarea id="text" class="form-control" rows="7" placeholder="Новий відгук..." ></textarea>
                         <br>
-                        <input type="button" value="Надіслати" class="btn btn-primary" onclick="return addResponse();">
+                        <input type="button" value="Надіслати" class="btn btn-primary" onclick="addResponse();">
                     </div>
                 </div>
             </form>
@@ -121,6 +121,7 @@
 <script src='js/bootstrap/scroolreveal.js'></script>
 <script src='js/bootstrap/bootstrap.min.js'></script>
 <script src='js/bootstrap/magnific-popup.js'></script>
+<script src="js/indexedDB.js"></script>
 
 </body>
 
