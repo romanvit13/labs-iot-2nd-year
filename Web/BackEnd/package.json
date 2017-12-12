@@ -1,0 +1,27 @@
+{
+  "name": "vit",
+  "version": "1.0.0",
+  "description": "ok",
+  "main": "index.js",
+  "scripts": {
+    "test": "ok",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ok"
+  },
+  "keywords": [
+    "ok"
+  ],
+  "author": "roman",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongodb": "^3.0.0-rc0"
+  }
+}

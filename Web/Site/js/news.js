@@ -31,6 +31,7 @@ function getNews() {
                 "</div> <p>" + news[0].text + "</p> </a></div></div>";
             parentElem.appendChild(out);
             localStorage.removeItem(i);
+            localStorage.clear();
             alert('Отримано з Local storage');
         }
     } else {
@@ -51,4 +52,18 @@ function getNews() {
             }
         }
     }
+}
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest().onreadystatechange=function (ev) {  }
+    xmlHttp.open( "GET", theUrl, false); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+function getOnlineNews() {
+    url = "localhost8000";
+    httpGet(url);
+
 }

@@ -1,0 +1,27 @@
+{
+  "name": "new",
+  "version": "1.0.0",
+  "description": "this is new server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "no"
+  ],
+  "author": "roman",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.0-rc0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.5"
+  }
+}
