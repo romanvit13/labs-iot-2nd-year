@@ -16,3 +16,5 @@ data = """4
 """
 
 print solve([map(int, row.split()) for row in data.splitlines()])
+
+
